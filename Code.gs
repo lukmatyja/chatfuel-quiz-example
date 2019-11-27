@@ -1,3 +1,23 @@
+function doPost(e){
+  
+  var data = JSON.parse(e.postData.contents)
+  
+  var result = parseInt(data.result);
+  var quizName = data.quizName;
+  var id = data.id;
+  var name = data.name;
+  
+  Logger.log('result: '+result);
+  Logger.log('quizName: '+quizName);
+  Logger.log('id: '+id);
+  Logger.log('name: '+name);
+  
+  var sheet = SpreadsheetApp.getActive().getSheetByName('Results');
+  sheet.appendRow([id,name,new Date(),quizName, result]);
+  
+  return ContentService.createTextOutput(JSON.stringify({})).setMimeType(ContentService.MimeType.JSON);
+}
+
 function doGet(e) {
   
   var questionNumber = parseInt(e.parameter.questionNumber);
