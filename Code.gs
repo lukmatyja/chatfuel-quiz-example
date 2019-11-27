@@ -4,7 +4,7 @@ function doGet(e) {
   var quizName = e.parameter.quizName;
   
   
-  var rows = getRows(quizName);
+  var row = getRows(quizName)[questionNumber];
   
   Logger.log('questionNo: '+questionNumber);
   Logger.log('quizName: '+quizName);
