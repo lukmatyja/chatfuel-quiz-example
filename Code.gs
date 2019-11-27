@@ -10,7 +10,7 @@ function doGet(e) {
   Logger.log('quizName: '+quizName);
   
   var result = {
-    set_attributes: { questionNumber: questionNumber+1 },
+    set_attributes: { QuestionNumber: questionNumber+1 },
     messages: [
       { text: row[0], quick_replies: getQuickReplies(row) }
       ]
